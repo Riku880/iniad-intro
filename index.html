@@ -3,29 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#102a43">
+    <meta name="theme-color" content="#071b2c">
     <title>INIADの紹介</title>
     <style>
       :root {
         color-scheme: light;
-        --navy: #102a43;
-        --blue: #176b87;
-        --teal: #18a6a6;
-        --ink: #243b53;
-        --muted: #627d98;
+        --navy: #071b2c;
+        --blue: #116b82;
+        --teal: #42d6c5;
+        --ink: #173247;
+        --muted: #60798b;
         --surface: #ffffff;
-        --background: #f2f7fa;
+        --background: #f2f7f8;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       body {
         min-height: 100vh;
         margin: 0;
-        padding: 48px 20px;
-        background: linear-gradient(160deg, #e6f4f5 0, var(--background) 360px);
+        padding: clamp(20px, 5vw, 64px) 20px;
+        background:
+          radial-gradient(ellipse at 12% 8%, rgb(66 214 197 / 18%), transparent 30rem),
+          radial-gradient(ellipse at 92% 78%, rgb(17 107 130 / 12%), transparent 32rem),
+          var(--background);
         color: var(--ink);
         font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
         font-size: 16px;
@@ -33,145 +34,209 @@
       }
 
       main {
-        width: min(100%, 860px);
+        position: relative;
+        width: min(100%, 940px);
         margin: 0 auto;
-        padding: clamp(28px, 6vw, 64px);
+        padding: clamp(24px, 6vw, 68px);
         overflow: hidden;
-        background: var(--surface);
-        border: 1px solid #d9e7ed;
-        border-radius: 24px;
-        box-shadow: 0 20px 55px rgb(16 42 67 / 10%);
+        background: rgb(255 255 255 / 92%);
+        border: 1px solid rgb(255 255 255 / 90%);
+        border-radius: 30px;
+        box-shadow: 0 30px 90px rgb(7 27 44 / 13%), 0 4px 14px rgb(7 27 44 / 5%);
       }
 
       header {
         position: relative;
-        margin: calc(clamp(28px, 6vw, 64px) * -1);
-        margin-bottom: 42px;
-        padding: clamp(42px, 8vw, 76px) clamp(28px, 6vw, 64px);
+        isolation: isolate;
+        display: flex;
+        min-height: 300px;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin: calc(clamp(24px, 6vw, 68px) * -1);
+        margin-bottom: clamp(42px, 7vw, 72px);
+        padding: clamp(38px, 8vw, 82px) clamp(28px, 7vw, 76px);
         overflow: hidden;
-        background: linear-gradient(120deg, var(--navy), var(--blue));
+        background: linear-gradient(125deg, #071b2c 4%, #0c4660 63%, #117b88 100%);
         color: #fff;
       }
 
+      header::before,
       header::after {
         position: absolute;
-        right: -55px;
-        bottom: -125px;
-        width: 280px;
-        height: 280px;
-        border: 1px solid rgb(255 255 255 / 18%);
+        z-index: -1;
+        border: 1px solid rgb(255 255 255 / 15%);
         border-radius: 50%;
-        box-shadow: 0 0 0 30px rgb(255 255 255 / 5%), 0 0 0 60px rgb(255 255 255 / 4%);
         content: "";
       }
 
+      header::before {
+        top: -190px;
+        right: -25px;
+        width: 430px;
+        height: 430px;
+        box-shadow: 0 0 0 38px rgb(255 255 255 / 4%), 0 0 0 82px rgb(255 255 255 / 3%);
+      }
+
+      header::after {
+        right: 12%;
+        bottom: -180px;
+        width: 280px;
+        height: 280px;
+        border-color: rgb(66 214 197 / 35%);
+      }
+
       .eyebrow {
-        margin: 0 0 8px;
-        color: #a9eeee;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.14em;
+        margin: 0 0 12px;
+        color: #8af0df;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.19em;
       }
 
       h1 {
         position: relative;
-        z-index: 1;
         margin: 0;
-        font-size: clamp(2rem, 6vw, 3.25rem);
-        line-height: 1.3;
-        letter-spacing: 0.04em;
+        font-size: clamp(2.35rem, 7vw, 4.5rem);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        line-height: 1.2;
       }
 
-      section + section {
-        margin-top: 42px;
+      h1::after {
+        display: block;
+        width: 64px;
+        height: 4px;
+        margin-top: 20px;
+        border-radius: 99px;
+        background: var(--teal);
+        content: "";
       }
+
+      section + section { margin-top: clamp(42px, 7vw, 66px); }
 
       h2 {
         display: flex;
         align-items: center;
-        gap: 12px;
-        margin: 0 0 18px;
+        gap: 14px;
+        margin: 0 0 20px;
         color: var(--navy);
-        font-size: clamp(1.25rem, 3vw, 1.6rem);
+        font-size: clamp(1.35rem, 3vw, 1.75rem);
+        font-weight: 800;
+        letter-spacing: 0.04em;
       }
 
       h2::before {
         width: 5px;
-        height: 1.25em;
+        height: 1.35em;
         border-radius: 99px;
-        background: linear-gradient(var(--teal), var(--blue));
+        background: linear-gradient(180deg, var(--teal), var(--blue));
         content: "";
       }
 
-      p {
-        margin: 0;
+      h2::after {
+        align-self: flex-end;
+        margin: 0 0 3px auto;
+        color: #9aafba;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
       }
 
+      section[aria-labelledby="overview-title"] h2::after { content: "ABOUT INIAD"; }
+      section[aria-labelledby="courses-title"] h2::after { content: "LEARNING FIELDS"; }
+      p { margin: 0; }
+
       .overview {
-        color: #486581;
-        font-size: 1.03rem;
+        padding: 22px 26px;
+        border-left: 2px solid #a9e8df;
+        border-radius: 0 16px 16px 0;
+        background: linear-gradient(100deg, #f3fbfa, #fbfdfd);
+        color: #496577;
+        font-size: 1.02rem;
+        line-height: 2;
       }
 
       ul {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+        gap: 14px;
         margin: 0;
         padding: 0;
         list-style: none;
+        counter-reset: course;
       }
 
       li {
         position: relative;
-        padding: 14px 16px 14px 42px;
-        border: 1px solid #dce9ef;
-        border-radius: 12px;
-        background: #f8fbfc;
+        display: flex;
+        min-height: 82px;
+        align-items: center;
+        padding: 16px 18px 16px 62px;
+        border: 1px solid #e0eaed;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 5px 16px rgb(7 27 44 / 3%);
         color: var(--ink);
-        font-weight: 600;
-        transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+        font-weight: 700;
+        line-height: 1.55;
+        counter-increment: course;
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
       }
 
       li::before {
         position: absolute;
-        top: 50%;
-        left: 17px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--teal);
-        content: "";
-        transform: translateY(-50%);
+        left: 18px;
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border-radius: 10px;
+        background: #e8f8f5;
+        color: #118579;
+        content: counter(course, decimal-leading-zero);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      li::after {
+        position: absolute;
+        right: 18px;
+        color: #9cb2bd;
+        content: "↗";
+        font-size: 0.9rem;
+        opacity: 0;
+        transform: translate(-4px, 4px);
+        transition: opacity 180ms ease, transform 180ms ease;
       }
 
       li:hover {
-        transform: translateY(-2px);
-        border-color: #8bd6d3;
-        background: #f0fbfa;
+        transform: translateY(-4px);
+        border-color: #9bded5;
+        background: #fbfffe;
+        box-shadow: 0 14px 28px rgb(7 80 83 / 9%);
       }
 
+      li:hover::after { opacity: 1; transform: translate(0, 0); }
+
       @media (max-width: 520px) {
-        body {
-          padding: 20px 12px;
-        }
-
-        main {
-          border-radius: 18px;
-        }
-
+        body { padding: 14px 10px; }
+        main { padding: 24px 20px; border-radius: 22px; }
         header {
-          margin-bottom: 32px;
+          min-height: 250px;
+          margin: -24px -20px 38px;
+          padding: 42px 24px;
         }
-
-        section + section {
-          margin-top: 32px;
-        }
+        .eyebrow { max-width: 270px; font-size: 0.62rem; line-height: 1.7; }
+        .overview { padding: 18px; }
+        section + section { margin-top: 42px; }
+        ul { grid-template-columns: 1fr; gap: 10px; }
+        li { min-height: 70px; }
+        h2::after { font-size: 0.58rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
           scroll-behavior: auto !important;
           transition-duration: 0.01ms !important;
         }
@@ -187,7 +252,7 @@
 
       <section aria-labelledby="overview-title">
         <h2 id="overview-title">概要</h2>
-        <p class="overview">INIADでは入学直後から、世界中で使われているプログラミング言語「Python」を学びます。さらに、ソースプログラム管理システム「Git」などを活用し、情報技術の基礎を身につけます。</p>
+        <p class="overview">INIADでは入学直後から、世界中で使われているプログラミング言語「Python」を学びます。さらに、ソースプログラム管理システム「Git」など、実践的な技術や知識を身につけます。</p>
       </section>
 
       <section aria-labelledby="courses-title">
